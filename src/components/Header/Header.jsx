@@ -8,14 +8,14 @@ const Header = () => {
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabindex="0" role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex="0" role="button" className="btn btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                                     d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul tabindex="0"
+                        <ul tabIndex="0"
                             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             <li className="text-[16px]"><a>Home</a></li>
                             <li className="text-[16px]"><a>Recipes</a></li>
@@ -38,7 +38,7 @@ const Header = () => {
                     <div className="">                    
                     <label className="input input-bordered rounded-full flex flex-start  text-left">
 <button className="btn btn-ghost btn-circle">
-      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
     </button>
 
                             <input type="text" placeholder="Search" className="input  w-24 md:w-auto" />
@@ -47,7 +47,7 @@ const Header = () => {
                         </label>
                     </div>
                     <div className="dropdown dropdown-end">
-                        <div tabindex="0" role="button" className="btn btn-ghost btn-circle avatar">
+                        <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-12 p-2 bg-green-400 rounded-full">
                             <img className='h-8' alt="User" src={person} />
                         </div>
@@ -59,8 +59,7 @@ const Header = () => {
         </nav>
       
         <div className="max-w-[1170px] mx-auto mb-20">
-                <div className="bg-[#12132D]
-                bg-cover bg-no-repeat rounded-[32px] lg:min-h-[550px]"
+                <div className="bg-[#12132D] bg-cover bg-no-repeat rounded-[32px] lg:min-h-[550px]"
                 style={{backgroundImage: `url(${banner})`}}
                 >
                     <div className="flex flex-col justify-center items-center p-3 m-2">                        
@@ -69,7 +68,7 @@ const Header = () => {
                                 Discover an exceptional cooking class tailored for you!
                             </h1>
                             <p className="text-white text-center lg:text-lg lg:max-w-[900px] mb-8 mx-3">
-                                Indulge in a personalized culinary adventure with our tailored cooking classes. Whether you're a beginner or a seasoned chef, our expert instructors will guide you through an unforgettable experience.</p>
+                                Indulge in a personalized culinary adventure with our tailored cooking classes. Whether you are a beginner or a seasoned chef, our expert instructors will guide you through an unforgettable experience.</p>
     
                             <div>
                                 <button 
