@@ -7,6 +7,10 @@ import { useEffect, useState } from 'react'
 import OurRecipes from './components/OurRecipes/OurRecipes';
 import Recipe from './Recipe';
 import Cooking from './Cooking';
+import CurrentlyCooking from './CurrentlyCooking';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
  
@@ -21,27 +25,54 @@ useEffect(() => {
     });
 }, []);
 
+  const [cooking, setCooking] = useState([]);
+  const[wantTocook, setWantTocook ] = useState(0)  
+  const[currentlyCooking, setCurrentlyCooking ] = useState(0)
+  const [preparing, setPreparing] = useState([]);
 
 
-  
-  const [preparing, setPreparing] = useState(0);
 
-  const handleAddToPrepare = (id, time) => {
-   // const newReadingTime = readingTime + time;
-    //setReadingTime(newReadingTime);
-    // remove the read blog from bookmark
-   // const remainingBookmarks = bookmarks.filter(
-   //  (bookmark) => bookmark.id !== id
-   // );
-   // setPreparing(remainingBookmarks);
+
+  const handleAddToPrepare = (recipe) => {
+
+    const newCurrentlyCooking = currentlyCooking+1;
+    setCurrentlyCooking(newCurrentlyCooking)
+
+    const newWantTocook = wantTocook-1;
+        setWantTocook(newWantTocook)
+
+    const newRecipe = [...preparing, recipe];
+    setPreparing(newRecipe);
+
+    const newCooking = cooking.filter(item => item.recipe_id != recipe.recipe_id);
+    setCooking(newCooking);
+
+
+    console.log(preparing);
   };
 
-  const [cooking, setCooking] = useState([]);
+
+
+
   const handleAddToCook = (recipe) => {
     //alert("hi");
     //console.log(recipe);
-    const newRecipe = [...cooking, recipe];
-    setCooking(newRecipe);
+    const isExist = cooking.find(item => item.recipe_id == recipe.recipe_id);
+    if(!isExist){
+
+        const newRecipe = [...cooking, recipe];
+        setCooking(newRecipe);
+        const newWantTocook = wantTocook+1;
+        setWantTocook(newWantTocook)
+    }
+
+    else{
+       // const notify = () => toast("Exist");
+       toast("Recipe already added");
+       // alert("Exist");
+    }
+
+
     //alert(cooking);
     //console.log(cooking);
   };
@@ -75,7 +106,7 @@ useEffect(() => {
                 <div className="w-full p-3 border-2 border-gray-500  bg-gray-50 rounded-3xl mt-5">
                         <div>
                             <div className="mt-5 font-fira">
-                                <h3 className="text-2xl text-center font-bold">Want to cook:</h3>
+                                <h3 className="text-2xl text-center font-bold">Want to cook: {wantTocook}</h3>
 
                                       
                                 <div className="divider px-5"></div>
@@ -99,12 +130,10 @@ useEffect(() => {
 
                                                             <Cooking 
                                                             key={idx} 
+                                                            index = {idx+1}
                                                             recipe={item}
                                                             handleAddToPrepare = {handleAddToPrepare}
-                                                            > </Cooking>
-                                                       
-                                                           // <td key={idx}>{item.recipe_name}</td>
-                                                            
+                                                            > </Cooking>                                                            
                                                         
                                                     ))}     
                                                     
@@ -115,7 +144,7 @@ useEffect(() => {
                                 </div>
                             </div>
                             <div className="mt-5">
-                                <h3 className="text-2xl text-center font-bold font-lexend">Currently cooking: 1</h3>
+                                <h3 className="text-2xl text-center font-bold">Currently cooking: {currentlyCooking}</h3>
                                 <div className="divider px-5"></div>
                                 <div>
                                     <div className="overflow-x-auto">
@@ -129,21 +158,26 @@ useEffect(() => {
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr className="bg-base-200">
-                                                    <th>1</th>
-                                                    <td>Vegetable Pasta</td>
-                                                    <td>25 min</td>
-                                                    <td>250 calories</td>
-                                                </tr>
+
+                                            {preparing?.map((item, idx) => (
+
+                                            <CurrentlyCooking 
+                                            key={idx} 
+                                            index = {idx+1}
+                                            recipe={item}                                            
+                                            > </CurrentlyCooking>                                                            
+
+                                            ))}   
+
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-10 font-lexend font-bold text-lg">
-                            <h3 className="">Total Time = 25 minutes </h3>
-                            <h3>Total Calories = 250 calories </h3>
+                        <div className="mt-10 font-bold text-lg">
+                            <h3 className="">Total Time = {preparing.reduce((p,c) => p + c.preparing_time,0)} minutes </h3>
+                            <h3>Total Calories = {preparing.reduce((p,c) => p + c.calories,0)} calories </h3>
                         </div>
                     </div>
 
@@ -151,7 +185,8 @@ useEffect(() => {
                 </div>  
                 
             </div>
-            <div className="Toastify"></div>
+
+            <div><ToastContainer /></div>
 
 
 
