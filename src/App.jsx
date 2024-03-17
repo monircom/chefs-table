@@ -6,19 +6,47 @@ import Header from './components/Header/Header'
 import { useEffect, useState } from 'react'
 import OurRecipes from './components/OurRecipes/OurRecipes';
 import Recipe from './Recipe';
+import Cooking from './Cooking';
 
 function App() {
  
-const [recipes , setRecipies  ] = useState([])
+const [recipes , setRecipes  ] = useState([])
 
 useEffect(() => {
   fetch("recipes.json")
     .then((res) => res.json())
     .then((data) => {
-       console.log(data);
-      setRecipies(data);
+       //console.log(data);
+      setRecipes(data);
     });
 }, []);
+
+
+
+  
+  const [preparing, setPreparing] = useState(0);
+
+  const handleAddToPrepare = (id, time) => {
+   // const newReadingTime = readingTime + time;
+    //setReadingTime(newReadingTime);
+    // remove the read blog from bookmark
+   // const remainingBookmarks = bookmarks.filter(
+   //  (bookmark) => bookmark.id !== id
+   // );
+   // setPreparing(remainingBookmarks);
+  };
+
+  const [cooking, setCooking] = useState([]);
+  const handleAddToCook = (recipe) => {
+    //alert("hi");
+    //console.log(recipe);
+    const newRecipe = [...cooking, recipe];
+    setCooking(newRecipe);
+    //alert(cooking);
+    //console.log(cooking);
+  };
+
+  
 
   return (
     <>
@@ -31,7 +59,11 @@ useEffect(() => {
                     <div className="grid grid-cols-1  lg:grid-cols-2 mt-5 gap-5 w-full">
                     
                     {recipes?.map((recipe,idx) => (
-                      <Recipe key={idx} recipe={recipe}> </Recipe>
+                      <Recipe 
+                      key={idx} 
+                      recipe={recipe}
+                      handleAddToCook = {handleAddToCook}
+                      > </Recipe>
                     ))}
                     
                     
@@ -39,11 +71,13 @@ useEffect(() => {
                     </div>
                 </div>
 
-                <div className="w-full md:w-[50%] lg:w-[40%]">
-                    <div className="w-full p-3 border-2 border-gray-500  bg-gray-50 rounded-3xl mt-5">
+                <div className="w-full md:w-[50%] lg:w-[40%]">                
+                <div className="w-full p-3 border-2 border-gray-500  bg-gray-50 rounded-3xl mt-5">
                         <div>
                             <div className="mt-5 font-fira">
-                                <h3 className="text-2xl text-center font-bold font-lexend">Want to cook:0</h3>
+                                <h3 className="text-2xl text-center font-bold">Want to cook:</h3>
+
+                                      
                                 <div className="divider px-5"></div>
                                 <div>
                                     <div className="w-full font-fira">
@@ -58,7 +92,23 @@ useEffect(() => {
                                                         <th className="p-1 md:p-3 lg:p-3"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                
+                                                    
+                                                    {cooking?.map((item, idx) => (
+
+                                                            <Cooking 
+                                                            key={idx} 
+                                                            recipe={item}
+                                                            handleAddToPrepare = {handleAddToPrepare}
+                                                            > </Cooking>
+                                                       
+                                                           // <td key={idx}>{item.recipe_name}</td>
+                                                            
+                                                        
+                                                    ))}     
+                                                    
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -96,6 +146,8 @@ useEffect(() => {
                             <h3>Total Calories = 250 calories </h3>
                         </div>
                     </div>
+
+                   
                 </div>  
                 
             </div>
