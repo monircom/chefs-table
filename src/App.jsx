@@ -55,7 +55,7 @@ useEffect(() => {
         toast( recipe.recipe_name + " Added");
     }
     else{       
-       toast( recipe.recipe_name + " already added");      
+       toast.error( recipe.recipe_name + " already added");      
     } 
   };  
 
