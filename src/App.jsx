@@ -1,6 +1,3 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header'
 import { useEffect, useState } from 'react'
@@ -19,8 +16,7 @@ const [recipes , setRecipes  ] = useState([])
 useEffect(() => {
   fetch("recipes.json")
     .then((res) => res.json())
-    .then((data) => {
-       //console.log(data);
+    .then((data) => {       
       setRecipes(data);
     });
 }, []);
@@ -30,16 +26,13 @@ useEffect(() => {
   const[currentlyCooking, setCurrentlyCooking ] = useState(0)
   const [preparing, setPreparing] = useState([]);
 
-
-
-
   const handleAddToPrepare = (recipe) => {
 
     const newCurrentlyCooking = currentlyCooking+1;
     setCurrentlyCooking(newCurrentlyCooking)
 
     const newWantTocook = wantTocook-1;
-        setWantTocook(newWantTocook)
+    setWantTocook(newWantTocook)
 
     const newRecipe = [...preparing, recipe];
     setPreparing(newRecipe);
@@ -47,37 +40,22 @@ useEffect(() => {
     const newCooking = cooking.filter(item => item.recipe_id != recipe.recipe_id);
     setCooking(newCooking);
 
-
     console.log(preparing);
   };
 
 
-
-
   const handleAddToCook = (recipe) => {
-    //alert("hi");
-    //console.log(recipe);
     const isExist = cooking.find(item => item.recipe_id == recipe.recipe_id);
     if(!isExist){
-
         const newRecipe = [...cooking, recipe];
         setCooking(newRecipe);
         const newWantTocook = wantTocook+1;
         setWantTocook(newWantTocook)
     }
-
-    else{
-       // const notify = () => toast("Exist");
-       toast("Recipe already added");
-       // alert("Exist");
-    }
-
-
-    //alert(cooking);
-    //console.log(cooking);
-  };
-
-  
+    else{       
+       toast("Recipe already added");      
+    } 
+  };  
 
   return (
     <>
@@ -95,13 +73,10 @@ useEffect(() => {
                       recipe={recipe}
                       handleAddToCook = {handleAddToCook}
                       > </Recipe>
-                    ))}
+                    ))}                   
                     
-                    
-
                     </div>
                 </div>
-
                 <div className="w-full md:w-[50%] lg:w-[40%]">                
                 <div className="w-full p-3 border-2 border-gray-500  bg-gray-50 rounded-3xl mt-5">
                         <div>
@@ -123,11 +98,9 @@ useEffect(() => {
                                                         <th className="p-1 md:p-3 lg:p-3"></th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                
+                                                <tbody>                                               
                                                     
                                                     {cooking?.map((item, idx) => (
-
                                                             <Cooking 
                                                             key={idx} 
                                                             index = {idx+1}
@@ -179,19 +152,10 @@ useEffect(() => {
                             <h3 className="">Total Time = {preparing.reduce((p,c) => p + c.preparing_time,0)} minutes </h3>
                             <h3>Total Calories = {preparing.reduce((p,c) => p + c.calories,0)} calories </h3>
                         </div>
-                    </div>
-
-                   
-                </div>  
-                
+                    </div>                   
+                </div>                  
             </div>
-
             <div><ToastContainer /></div>
-
-
-
-
-
      </div>
       
     </>

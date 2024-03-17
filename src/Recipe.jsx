@@ -8,10 +8,10 @@ const Recipe = ({recipe,handleAddToCook}) => {
                                 <figure><img className="rounded-xl" src={recipe.recipe_image} alt="" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title ">{recipe.recipe_name}</h2>
-                                    <p className="font-fira">{recipe.short_description}</p>
+                                    <p className="">{recipe.short_description}</p>
                                     <div>
                                         <p className="font-bold">Ingredients: {recipe.ingredients.length} </p>
-                                        <ul className="font-fira list-disc pl-5 ml-5">
+                                        <ul className="list-disc pl-5 ml-5">
                                            {
                                             recipe.ingredients.map((ing,idx) =>( <li key={idx}>  {ing}</li>))
                                            }
@@ -39,7 +39,7 @@ const Recipe = ({recipe,handleAddToCook}) => {
                                    
                                     <div className="card-actions justify-start">
                                         <button onClick={() => {handleAddToCook(recipe)}}
-                                            className="btn bg-[#0BE58A] font-bold font-fira">Want to Cook</button></div>
+                                            className="btn bg-[#0BE58A] font-bold rounded-full">Want to Cook</button></div>
                                 </div>
                             </div>
                     </div>
@@ -48,7 +48,6 @@ const Recipe = ({recipe,handleAddToCook}) => {
 
 Recipe.propTypes = {
     recipe: PropTypes.object.isRequired,
-    //handleAddToBookmark: PropTypes.func.isRequired,
     handleAddToCook: PropTypes.func.isRequired,
   };
 

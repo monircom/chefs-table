@@ -19,7 +19,5 @@ const CurrentlyCooking = ({recipe,index}) => {
 CurrentlyCooking.propTypes = {
     recipe: PropTypes.object,
     index: PropTypes.number,
-    //handleAddToBookmark: PropTypes.func.isRequired,
-    //handleAddToPrepare: PropTypes.func.isRequired,
   };
 export default CurrentlyCooking;
