@@ -1,0 +1,56 @@
+[
+    {
+      "recipe_id": 1,
+      "recipe_image": "https://i.ibb.co/pyC5v6p/chicken-curry.jpg",
+      "recipe_name": "Chicken Curry",
+      "short_description": "A delicious and aromatic chicken curry that's perfect for dinner.",
+      "ingredients": ["550 g chicken", "120 ml coconut milk", "200 g tomatoes", "100 g onions", "3 cloves garlic", "2 tbsp curry powder"],
+      "preparing_time": 45,
+      "calories": 380
+    },
+    {
+      "recipe_id": 2,
+      "recipe_image": "https://i.ibb.co/Fhtg5nn/spaghetti-bolognese-jpg.jpg",
+      "recipe_name": "Spaghetti Bolognese",
+      "short_description": "Classic Italian pasta dish with savory meat sauce.",
+      "ingredients": ["400 g spaghetti", "300 g ground beef", "200 g tomatoes", "100 g onions", "2 cloves garlic", "1/4 cup grated Parmesan cheese"],
+      "preparing_time": 40,
+      "calories": 450
+    },
+    {
+      "recipe_id": 3,
+      "recipe_image": "https://i.ibb.co/0BBQhJJ/veggie-stir-fry-1597687367.jpg",
+      "recipe_name": "Vegetable Stir Fry",
+      "short_description": "A healthy and colorful stir fry packed with fresh vegetables.",
+      "ingredients": ["300 g mixed vegetables (bell peppers, carrots, broccoli)", "150 g tofu", "2 tbsp soy sauce", "1 tbsp sesame oil", "2 cloves garlic", "1 tsp ginger"],
+      "preparing_time": 25,
+      "calories": 250
+    },
+    {
+      "recipe_id": 4,
+      "recipe_image": "https://i.ibb.co/0Z9tVkc/caesar-salad.jpg",
+      "recipe_name": "Caesar Salad",
+      "short_description": "A classic salad with crisp romaine lettuce, croutons, and Parmesan cheese.",
+      "ingredients": ["1 head romaine lettuce", "1/2 cup croutons", "1/4 cup grated Parmesan cheese", "2 tbsp Caesar dressing", "1 lemon", "2 cloves garlic"],
+      "preparing_time": 15,
+      "calories": 200
+    },
+    {
+      "recipe_id": 5,
+      "recipe_image": "https://i.ibb.co/CmKBqGD/blueberry-pancakes.jpg",
+      "recipe_name": "Blueberry Pancakes",
+      "short_description": "Fluffy pancakes filled with juicy blueberries, perfect for breakfast.",
+      "ingredients": ["1 cup all-purpose flour", "1 cup milk", "1 egg", "1/2 cup blueberries", "2 tbsp sugar", "1 tsp baking powder"],
+      "preparing_time": 20,
+      "calories": 300
+    },
+    {
+      "recipe_id": 6,
+      "recipe_image": "https://i.ibb.co/87D3RjN/grilled-salmon.jpg",
+      "recipe_name": "Grilled Salmon",
+      "short_description": "Tender and flavorful grilled salmon fillets seasoned with herbs.",
+      "ingredients": ["4 salmon fillets", "2 tbsp olive oil", "1 lemon", "2 cloves garlic", "1 tsp dried dill", "Salt and pepper to taste"],
+      "preparing_time": 30,
+      "calories": 350
+    }
+  ]
