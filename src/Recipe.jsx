@@ -39,7 +39,7 @@ const Recipe = ({recipe,handleAddToCook}) => {
                                    
                                     <div className="card-actions justify-start">
                                         <button onClick={() => {handleAddToCook(recipe)}}
-                                            className="btn bg-[#0BE58A] font-bold rounded-full">Want to Cook</button></div>
+                                            className="btn bg-[#0BE58A] font-bold rounded-full w-full">Want to Cook</button></div>
                                 </div>
                             </div>
                     </div>

@@ -22,7 +22,7 @@ useEffect(() => {
 }, []);
 
   const [cooking, setCooking] = useState([]);
-  const[wantTocook, setWantTocook ] = useState(0)  
+  const[wantToCook, setWantToCook ] = useState(0)  
   const[currentlyCooking, setCurrentlyCooking ] = useState(0)
   const [preparing, setPreparing] = useState([]);
 
@@ -31,8 +31,8 @@ useEffect(() => {
     const newCurrentlyCooking = currentlyCooking+1;
     setCurrentlyCooking(newCurrentlyCooking)
 
-    const newWantTocook = wantTocook-1;
-    setWantTocook(newWantTocook)
+    const newWantToCook = wantToCook-1;
+    setWantToCook(newWantToCook)
 
     const newRecipe = [...preparing, recipe];
     setPreparing(newRecipe);
@@ -40,7 +40,8 @@ useEffect(() => {
     const newCooking = cooking.filter(item => item.recipe_id != recipe.recipe_id);
     setCooking(newCooking);
 
-    console.log(preparing);
+    toast( recipe.recipe_name + " Preparing");
+    
   };
 
 
@@ -49,11 +50,12 @@ useEffect(() => {
     if(!isExist){
         const newRecipe = [...cooking, recipe];
         setCooking(newRecipe);
-        const newWantTocook = wantTocook+1;
-        setWantTocook(newWantTocook)
+        const newWantToCook = wantToCook+1;
+        setWantToCook(newWantToCook)
+        toast( recipe.recipe_name + " Added");
     }
     else{       
-       toast("Recipe already added");      
+       toast( recipe.recipe_name + " already added");      
     } 
   };  
 
@@ -63,9 +65,9 @@ useEffect(() => {
      <div className="container mx-auto mb-10">
      <OurRecipes></OurRecipes>
 
-     <div className="container mx-auto flex justify-between flex-col md:flex-row lg:flex-row gap-5">
+     <div className="container mx-auto flex flex-col-reverse justify-between  md:flex-row lg:flex-row gap-5">
                 <div className="w-full md:w-[45%] lg:w-[58%]">
-                    <div className="grid grid-cols-1  lg:grid-cols-2 mt-5 gap-5 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 mt-5 gap-5 w-full">
                     
                     {recipes?.map((recipe,idx) => (
                       <Recipe 
@@ -81,7 +83,7 @@ useEffect(() => {
                 <div className="w-full p-3 border-2 border-gray-500  bg-gray-50 rounded-3xl mt-5">
                         <div>
                             <div className="mt-5">
-                                <h3 className="text-2xl text-center font-bold">Want to cook: {wantTocook}</h3>
+                                <h3 className="text-2xl text-center font-bold">Want to cook: <span className='text-[#0BE58A]'>{wantToCook}</span></h3>
 
                                       
                                 <div className="divider px-5"></div>
@@ -117,7 +119,7 @@ useEffect(() => {
                                 </div>
                             </div>
                             <div className="mt-5">
-                                <h3 className="text-2xl text-center font-bold">Currently cooking: {currentlyCooking}</h3>
+                                <h3 className="text-2xl text-center font-bold">Currently cooking: <span className='text-[#0BE58A]'>{currentlyCooking}</span> </h3>
                                 <div className="divider px-5"></div>
                                 <div>
                                     <div className="overflow-x-auto">
@@ -148,9 +150,9 @@ useEffect(() => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-10 font-bold text-lg">
-                            <h3 className="">Total Time = {preparing.reduce((p,c) => p + c.preparing_time,0)} minutes </h3>
-                            <h3>Total Calories = {preparing.reduce((p,c) => p + c.calories,0)} calories </h3>
+                        <div className="mt-10 font-bold text-lg text-center">
+                            <h3 className="">Total Time = <span className='text-[#0BE58A]'> {preparing.reduce((p,c) => p + c.preparing_time,0)}</span> minutes </h3>
+                            <h3>Total Calories = <span className='text-[#0BE58A]'> {preparing.reduce((p,c) => p + c.calories,0)}</span> calories </h3>
                         </div>
                     </div>                   
                 </div>                  
