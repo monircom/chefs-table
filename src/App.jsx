@@ -105,17 +105,17 @@ useEffect(() => {
                 <div className="w-full md:w-[50%] lg:w-[40%]">                
                 <div className="w-full p-3 border-2 border-gray-500  bg-gray-50 rounded-3xl mt-5">
                         <div>
-                            <div className="mt-5 font-fira">
+                            <div className="mt-5">
                                 <h3 className="text-2xl text-center font-bold">Want to cook: {wantTocook}</h3>
 
                                       
                                 <div className="divider px-5"></div>
                                 <div>
-                                    <div className="w-full font-fira">
+                                    <div className="w-full">
                                         <div className="overflow-x-auto">
                                             <table className="table">
                                                 <thead>
-                                                    <tr className="font-bold font-fira">
+                                                    <tr className="font-bold">
                                                         <th className="hidden md:block lg:block"></th>
                                                         <th className="p-1 md:p-3 lg:p-3">Name</th>
                                                         <th className="p-1 md:p-3 lg:p-3">Time</th>
