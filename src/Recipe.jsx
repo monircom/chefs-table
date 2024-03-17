@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 
 const Recipe = ({recipe}) => {
     return (
         <div className="w-full h-full">
                             <div
                                 className="card w-full h-full card-compact border-2 border-gray-500  bg-base-100 shadow-xl p-3">
-                                <figure><img src={recipe.recipe_image} alt="" /></figure>
+                                <figure><img className="rounded-xl" src={recipe.recipe_image} alt="" /></figure>
                                 <div className="card-body">
                                     <h2 className="card-title ">{recipe.recipe_name}</h2>
                                     <p className="font-fira">A delicious and healthy chicken stir fry.</p>
@@ -27,5 +28,11 @@ const Recipe = ({recipe}) => {
                     </div>
     );
 };
+
+Recipe.propTypes = {
+    recipe: PropTypes.object.isRequired,
+    //handleAddToBookmark: PropTypes.func.isRequired,
+    //handleMarkAsRead: PropTypes.func.isRequired,
+  };
 
 export default Recipe;

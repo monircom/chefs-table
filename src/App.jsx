@@ -30,8 +30,8 @@ useEffect(() => {
                 <div className="w-full md:w-[45%] lg:w-[58%]">
                     <div className="grid grid-cols-1  lg:grid-cols-2 mt-5 gap-5 w-full">
                     
-                    {recipes?.map((recipe) => (
-                      <Recipe recipe={recipe}> </Recipe>
+                    {recipes?.map((recipe,idx) => (
+                      <Recipe key={idx} recipe={recipe}> </Recipe>
                     ))}
                     
                     

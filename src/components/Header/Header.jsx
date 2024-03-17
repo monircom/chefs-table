@@ -4,7 +4,7 @@ import banner from '../../assets/images/banner.png'
 const Header = () => {
     return (
         <div>      
-        <nav className="container max-w-[1170px] px-4 my-8 mx-auto">
+        <nav className="container px-4 my-8 mx-auto">
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -58,7 +58,7 @@ const Header = () => {
             </div>
         </nav>
       
-        <div className="max-w-[1170px] mx-auto mb-20">
+        <div className="container mx-auto mb-20">
                 <div className="bg-[#12132D] bg-cover bg-no-repeat rounded-[32px] lg:min-h-[550px]"
                 style={{backgroundImage: `url(${banner})`}}
                 >
